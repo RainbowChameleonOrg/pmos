@@ -186,7 +186,7 @@
   .claude-note a { color:var(--teal); text-decoration:none; }
 
   /* PRICE BLOCK */
-  .price-grid { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--rule); margin-top:2rem; }
+  .price-grid { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--rule); margin-top:2rem; scroll-margin-top:90px; }
   .price-l { padding:3rem; background:var(--ink); border-right:1px solid var(--rule); }
   .price-r { padding:3rem; background:var(--card); }
   .price-eyebrow { font-family:var(--font-mono); font-size:12px; letter-spacing:0.14em; color:var(--teal-bright); text-transform:uppercase; margin-bottom:0.85rem; }
@@ -611,7 +611,7 @@
   </div>
 
   <!-- PRICE BLOCK -->
-  <div class="price-grid">
+  <div id="reserve-seat" class="price-grid">
     <div class="price-l">
       <div class="price-eyebrow">Founding cohort rate</div>
       <div class="price-row">
@@ -637,11 +637,10 @@
         <li>Live feedback from Shaili during every session</li>
         <li>Slack community with your cohort</li>
         <li>Recording access for cohort members</li>
-        <li class="bonus">Special access to FounderWell (founding bonus)</li>
-        <li class="bonus">Focus + Rhythm sessions via FounderWell</li>
+        <li class="bonus">Special FounderWell access — Focus + Rhythm sessions (founding bonus)</li>
       </ul>
       <div class="cta-area">
-        <a id="reserve-seat" href="https://www.founderwell.com/hs/payments/ShbkzMfFZSGj?referrer=PAYMENT_LINK" target="_blank" rel="noopener" class="btn-primary" style="font-size:13px;padding:15px 44px;">Reserve my founding seat →</a>
+        <a href="https://www.founderwell.com/hs/payments/ShbkzMfFZSGj?referrer=PAYMENT_LINK" target="_blank" rel="noopener" class="btn-primary" style="font-size:13px;padding:15px 44px;">Reserve my founding seat →</a>
         <div class="powered-by" style="text-align:center;margin-top:1rem;">Powered by <a href="https://founderwell.com" target="_blank" rel="noopener">FounderWell</a></div>
       </div>
     </div>
