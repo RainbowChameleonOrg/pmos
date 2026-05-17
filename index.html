@@ -129,13 +129,27 @@
   .need-desc { font-size:0.88rem; color:var(--ink-mid); line-height:1.6; }
 
   /* FOUNDERWELL BONUS */
-  .bonus-block { background:var(--teal-pale); border:1px solid rgba(0,158,137,0.2); padding:2.5rem 3rem; margin-top:3rem; display:grid; grid-template-columns:auto 1fr; gap:2.5rem; align-items:start; }
-  .bonus-logo { width:96px; height:auto; display:block; padding-top:4px; }
+  .bonus-block { background:var(--teal-pale); border:1px solid rgba(0,158,137,0.2); padding:2.5rem 3rem; margin-top:3rem; display:grid; grid-template-columns:auto 1fr; gap:2.5rem; align-items:center; }
+  .bonus-logo-wrap { display:flex; align-items:center; justify-content:center; }
+  .bonus-logo { width:140px; height:auto; display:block; }
   .bonus-label { font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em; color:var(--teal); text-transform:uppercase; margin-bottom:0.5rem; }
   .bonus-title { font-family:var(--font-display); font-size:1.35rem; font-weight:700; color:var(--ink); margin-bottom:0.6rem; line-height:1.2; }
   .bonus-desc { font-size:0.95rem; color:var(--ink-mid); line-height:1.75; }
   .bonus-pills { display:flex; gap:8px; flex-wrap:wrap; margin-top:1rem; }
   .bonus-pill { font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; color:var(--teal); border:1px solid rgba(0,158,137,0.3); padding:4px 12px; text-transform:uppercase; }
+
+  /* FREE RESOURCE */
+  .free-block { background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--teal); padding:2.75rem 3rem; margin-top:3rem; display:grid; grid-template-columns:auto 1fr; gap:2.25rem; align-items:start; }
+  .free-icon { width:64px; height:64px; border-radius:50%; background:var(--teal-pale); color:var(--teal); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:1.9rem; font-weight:700; flex-shrink:0; }
+  .free-label { font-family:var(--font-mono); font-size:15px; font-weight:700; letter-spacing:0.14em; color:var(--teal); text-transform:uppercase; margin-bottom:0.75rem; }
+  .free-title { font-family:var(--font-display); font-size:1.75rem; font-weight:700; color:var(--ink); margin-bottom:0.85rem; line-height:1.2; }
+  .free-desc { font-size:1.1rem; color:var(--ink-mid); line-height:1.7; margin-bottom:1.4rem; }
+  .free-links { display:flex; flex-wrap:wrap; gap:0.85rem 1.75rem; align-items:center; }
+  .free-link { font-family:var(--font-mono); font-size:14px; letter-spacing:0.06em; text-decoration:none; padding:12px 22px; transition:background 0.2s,color 0.2s; display:inline-flex; align-items:center; gap:0.5rem; }
+  .free-link-primary { background:var(--teal); color:var(--white); }
+  .free-link-primary:hover { background:var(--teal-dim); }
+  .free-link-ghost { color:var(--teal); border-bottom:1px solid rgba(0,158,137,0.3); padding:0 0 2px; }
+  .free-link-ghost:hover { border-color:var(--teal); }
 
   /* INSTRUCTOR */
   .inst-grid { display:grid; grid-template-columns:320px 1fr; gap:5rem; margin-top:2rem; align-items:start; }
@@ -239,6 +253,7 @@
     .faq-item { border-right:none; }
     .price-l { border-right:none; border-bottom:1px solid var(--rule); }
     .bonus-block { grid-template-columns:1fr; }
+    .free-block { grid-template-columns:1fr; padding:1.75rem; }
     footer { flex-direction:column; gap:1rem; text-align:center; }
   }
 </style>
@@ -598,7 +613,7 @@
 
   <!-- FOUNDERWELL BONUS -->
   <div class="bonus-block">
-    <a href="https://founderwell.com" target="_blank" rel="noopener"><img src="2025-Final-FounderWell-Logo.png" alt="FounderWell" class="bonus-logo"></a>
+    <a href="https://founderwell.com" target="_blank" rel="noopener" class="bonus-logo-wrap"><img src="founderwell-stacked.png" alt="FounderWell" class="bonus-logo"></a>
     <div>
       <div class="bonus-label">Founding cohort bonus</div>
       <div class="bonus-title">Special access to <a href="https://founderwell.com" target="_blank" style="color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,158,137,0.3);">FounderWell</a> — included when you join now</div>
@@ -649,6 +664,20 @@
       <div class="cta-area">
         <a href="https://www.founderwell.com/hs/payments/ShbkzMfFZSGj?referrer=PAYMENT_LINK" target="_blank" rel="noopener" class="btn-primary" style="font-size:13px;padding:15px 44px;">Reserve my founding seat →</a>
         <div class="powered-by" style="text-align:center;margin-top:1rem;">Powered by <a href="https://founderwell.com" target="_blank" rel="noopener">FounderWell</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FREE RESOURCE -->
+  <div class="free-block">
+    <div class="free-icon">★</div>
+    <div>
+      <div class="free-label">Free resource — start before class</div>
+      <div class="free-title">The Founder Context Portfolio</div>
+      <div class="free-desc">Explain your business to AI once — then reuse it across every tool. A free, open template for the Business Context File you'll extend in the course. Read the explainer, fork the repo, and bring a draft to session 1.</div>
+      <div class="free-links">
+        <a href="https://github.com/aipmguru/founder-context-portfolio" target="_blank" rel="noopener" class="free-link free-link-primary">Get the template on GitHub →</a>
+        <a href="https://aipmguru.substack.com/p/explain-your-business-to-ai-once" target="_blank" rel="noopener" class="free-link free-link-ghost">Read the explainer →</a>
       </div>
     </div>
   </div>
