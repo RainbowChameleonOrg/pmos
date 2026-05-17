@@ -232,6 +232,39 @@
   .soon-date { font-family:var(--font-mono); font-size:13px; letter-spacing:0.06em; color:var(--muted); text-transform:uppercase; margin-top:auto; padding-top:1rem; border-top:1px solid var(--rule); }
   @media (max-width:900px) { .soon-grid { grid-template-columns:1fr; } .soon-item { border-right:none; border-bottom:1px solid var(--rule); } .soon-item:last-child { border-bottom:none; } }
 
+  /* NOTIFY ME (HubSpot embed) */
+  .notify-block { background:var(--card); border:1px solid var(--rule); padding:2.5rem 3rem; margin-top:3rem; display:grid; grid-template-columns:1fr 1.2fr; gap:2.5rem; align-items:start; }
+  .notify-label { font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.14em; color:var(--teal); text-transform:uppercase; margin-bottom:0.6rem; }
+  .notify-title { font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--ink); margin-bottom:0.6rem; line-height:1.2; }
+  .notify-desc { font-size:0.95rem; color:var(--ink-mid); line-height:1.75; }
+  .notify-form { min-width:0; }
+  .notify-form .hs-form-field { margin-bottom:1rem; }
+  .notify-form .hs-firstname,
+  .notify-form .hs-lastname,
+  .notify-form .hs-fullname,
+  .notify-form .hs_firstname,
+  .notify-form .hs_lastname,
+  .notify-form .hs_fullname,
+  .notify-form .hs-form-field.hs-fieldtype-text:has(input[name="firstname"]),
+  .notify-form .hs-form-field.hs-fieldtype-text:has(input[name="lastname"]) { display:none !important; }
+  .notify-form label { font-family:var(--font-mono); font-size:11px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase; display:block; margin-bottom:0.4rem; }
+  .notify-form .hs-form-required { color:var(--teal); margin-left:0.25rem; }
+  .notify-form input[type="text"],
+  .notify-form input[type="email"],
+  .notify-form input[type="tel"],
+  .notify-form textarea,
+  .notify-form select { width:100%; box-sizing:border-box; font-family:var(--font-body); font-size:0.95rem; color:var(--ink); background:var(--bg); border:1px solid var(--rule); padding:11px 14px; outline:none; transition:border-color 0.2s; }
+  .notify-form input[type="text"]:focus,
+  .notify-form input[type="email"]:focus,
+  .notify-form input[type="tel"]:focus,
+  .notify-form textarea:focus,
+  .notify-form select:focus { border-color:var(--teal); }
+  .notify-form .hs-button { font-family:var(--font-mono); font-size:13px; letter-spacing:0.06em; color:var(--white); background:var(--teal); border:none; padding:13px 32px; cursor:pointer; text-decoration:none; display:inline-block; transition:background 0.2s; outline:none; margin-top:0.5rem; }
+  .notify-form .hs-button:hover { background:var(--teal-dim); }
+  .notify-form .hs-error-msgs { list-style:none; padding:0; margin:0.4rem 0 0; font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; color:#c0392b; }
+  .notify-form .submitted-message { font-family:var(--font-display); font-size:1.1rem; color:var(--ink); line-height:1.5; }
+  @media (max-width:900px) { .notify-block { grid-template-columns:1fr; padding:1.75rem; gap:1.5rem; } }
+
   /* FOOTER */
   footer { border-top:1px solid var(--rule); padding:2rem 3rem; display:flex; justify-content:space-between; align-items:center; background:var(--surface); }
   .footer-left { display:flex; flex-direction:column; gap:5px; }
@@ -687,7 +720,7 @@
 <section id="coming-soon">
   <div class="eyebrow">08 — Coming soon</div>
   <h2 class="sec-title">More classes <em>on the way.</em></h2>
-  <p class="sec-sub">New cohorts and workshops being added. Reserve your seat in the founding cohort now, and you'll hear about these first.</p>
+  <p class="sec-sub">New cohorts and workshops being added. Reserve a founding seat to hear first — or join the list below to be notified when future cohorts open.</p>
   <div class="soon-grid">
     <div class="soon-item">
       <div class="soon-tag">Workshop</div>
@@ -703,6 +736,40 @@
       <div class="soon-tag">Workshop</div>
       <div class="soon-name">Go to Market</div>
       <div class="soon-date">Date: TBD</div>
+    </div>
+  </div>
+
+  <!-- NOTIFY ME -->
+  <div class="notify-block">
+    <div>
+      <div class="notify-label">Get notified</div>
+      <div class="notify-title">Hear first when new classes open</div>
+      <div class="notify-desc">Drop your email and we'll let you know when the next PM OS cohort, MVP workshop, or Go to Market session is scheduled. No spam — just announcements.</div>
+    </div>
+    <div class="notify-form">
+      <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/embed/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+          portalId: "67120",
+          formId: "a32bb23c-886d-42a3-88e1-23bc4bdf2130",
+          region: "na1",
+          onFormReady: function(form) {
+            var root = (form && form.length) ? form[0].parentNode : document.querySelector('.notify-form');
+            if (!root) return;
+            // Hide name fields visually, but keep inputs with a placeholder
+            // value so HubSpot's required-field validation still passes.
+            ['firstname', 'lastname'].forEach(function(n) {
+              var input = root.querySelector('input[name="' + n + '"]');
+              if (!input) return;
+              input.value = 'Subscriber';
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+              var field = input.closest('.hs-form-field');
+              if (field) field.style.display = 'none';
+            });
+          }
+        });
+      </script>
     </div>
   </div>
 </section>
